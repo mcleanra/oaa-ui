@@ -1,0 +1,83 @@
+﻿<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<highchart id="chart1" config="chart"></highchart>
+		</div>
+	</div>
+	<div class="row" ng-show="showLegend">
+		<div class="col-md-12">
+			<br />
+			<div id="details-panel" class="panel panel-default">
+				<div class="panel-heading clearfix">
+					<div class="row" style="line-height:30px;">
+						<div class="col-md-1">
+							<span style="vertical-align:middle;">Details</span>
+						</div>
+						<div class="col-md-10 text-center">
+							<span class="legend-number status-completed">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="legend-label">Completed</span>
+							<span class="legend-number status-draft">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="legend-label">Draft</span>
+							<span class="legend-number status-proposed">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="legend-label">Proposed</span>
+							<span class="legend-number status-approved">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="legend-label">Approved</span>
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-default btn-sm pull-right" type="button">{{truncated ? "Expand" : "Collapse"}} All</button>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<span ng-show="oaas == undefined || oaas.length == 0">No data.</span>
+						</div>
+					</div>
+					<div class="details-container">
+						<div ng-repeat="(group, groupOaas) in oaas | groupBy:'Group'">
+							<div class="text-center">
+								<b ng-if="sortBy != 'country'">{{group}}</b>
+								<b ng-if="sortBy == 'country'"><a href="#/country/{{group}}/engagements">{{group}}</a></b>
+								<br />
+								<br />
+							</div>
+							<div ng-repeat="oaa in groupOaas">
+								<table class="details-table">
+									<tr>
+										<td>
+											<div style="padding-right:5px;">
+												<span class="legend-number {{oaa.Status ? 'status-' + oaa.Status.toLowerCase() : 'status-none'}} pull-right">{{oaa.Index}}</span>
+											</div>
+										</td>
+										<td>
+											<div>
+												<div uib-dropdown>
+													<a id="btn-oaa-{{oaas.indexOf(oaa) + 1}}" href="#" style="font-weight:bold;" uib-dropdown-toggle>{{oaa.EventID}}<span class="caret">&nbsp;</span></a>
+													<ul class="dropdown-menu" role="menu" uib-dropdown-menu aria-labelledby="btn-oaa-{{oaas.indexOf(oaa) + 1}}">
+														<li role="menuitem">
+															<a href="#" ng-click="doActionForOaa('view-oaa', oaa, $event)"><span class="glyphicon glyphicon-folder-open text-primary"></span>&nbsp;&nbsp;&nbsp; View OAA</a>
+														</li>
+														<li role="menuitem">
+															<a href="#" ng-click="doActionForOaa('view-documents', oaa, $event)"><span class="glyphicon glyphicon-paperclip text-primary"></span>&nbsp;&nbsp;&nbsp; View Documents</a>
+														</li>
+														<li role="menuitem">
+															<a href="#" ng-click="doActionForOaa('view-staffing', oaa, $event)"><span class="glyphicon glyphicon-thumbs-up text-primary"></span>&nbsp;&nbsp;&nbsp; View Staffing History</a>
+														</li>
+														<li role="menuitem">
+															<a href="#" ng-click="doActionForOaa('view-checklist', oaa, $event)"><span class="glyphicon glyphicon-list-alt text-primary"></span>&nbsp;&nbsp;&nbsp; View Checklist</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<span ng-bind-html="oaa.Concept_x002f_Comments">
+											</span>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<hr />
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

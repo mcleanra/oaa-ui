@@ -1,0 +1,17 @@
+{
+  "name": "oaa-ui",
+  "description": "An AngularJS module containing various UI elements used in the OAA app",
+  "main": "",
+  "authors": [
+    "Ryan McLean"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mcleanra/oaa-ui",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,10 @@
+﻿<div class="container-fluid">
+	<center div ng-hide="loading">
+		<div ng-style="{'width': width}" ng-if="!flagOnly">
+			<span>{{country.GlyphIconFlagCode}}</span>
+			<span>{{country.Title}}</span>
+		</div>
+		<div ng-if="!flagOnly">{{country.Capital}}</div>
+		<div ng-style="getFlagDimensions()" ng-class="getFlagClasses()"></div>
+	</center>
+</div>

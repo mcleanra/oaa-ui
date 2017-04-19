@@ -1,0 +1,27 @@
+{
+  "name": "oaa-ui",
+  "version": "1.0.0",
+  "description": "An AngularJS module containing various UI elements used in the OAA app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcleanra/oaa-ui.git"
+  },
+  "author": "Ryan McLean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mcleanra/oaa-ui/issues"
+  },
+  "homepage": "https://github.com/mcleanra/oaa-ui#readme",
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^2.1.2"
+  },
+  "unpkg": "dist/oaa-ui.min.js",
+  "files": [
+    "dist"
+  ]
+}
