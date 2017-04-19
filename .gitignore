@@ -2,6 +2,6 @@ gulp.1
 build
 .tmp
 /src/release
-/release
+/dist
 /bower_components
 /node_modules
